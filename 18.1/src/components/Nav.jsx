@@ -6,10 +6,11 @@ function Nav() {
   return (
     <div className='navbar nav'>
         <GiRunningShoe size={30}/>
-        <h3>Shoes Mfs</h3>
+        <h3>Shoestore</h3>
         <ul>
             <Link to={'/about'} className="link_reset current"><li>About</li></Link>
             <Link to={'/'} className="link_reset"><li>Home</li></Link>
+            <Link to={'/products'} className="link_reset"><li>Shoes</li></Link>
         </ul>
     </div>
   )

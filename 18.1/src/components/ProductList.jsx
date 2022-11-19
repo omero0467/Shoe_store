@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import ShoeItem from './ShoeItem';
 import { GlobalContext } from '../context/Global';
 import Nav from './Nav';
-// import Card from './Card'
 function List() {
     const { listings,} = useContext(GlobalContext)
     console.log(listings);
@@ -14,7 +13,7 @@ function List() {
 return (
   <>
       <Nav></Nav>
-    <h1>Browse Shoes</h1>
+    <h1 className='center_text'>Browse Shoes</h1>
   <div className="home_body product_body">
     <div className='ad_banner center_parent'><span className='banner_text text-shadow-emph'><Link className='link_reset white_text' to="/">See More</Link></span></div>
     <div className='productlist'>

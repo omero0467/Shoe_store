@@ -283,3 +283,8 @@ transform: translateX(-50%);
 .edit_btn:hover{
   background-color:rgb(40, 126, 254); ;
 }
+
+.center_text{
+  text-align: center;
+  margin-top: 2rem;
+}
