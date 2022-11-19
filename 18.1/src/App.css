@@ -179,9 +179,9 @@ transform: translateX(-50%);
 }  
 
 .productlist {
-  width: 40%;
+  width: 80%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
   gap: 2rem;
 }  
@@ -189,10 +189,8 @@ transform: translateX(-50%);
 .shoe_item{
   height: 30vmin;
   width: 30vmin;
-  background: url('../public/revolt-164_6wVEHfI-unsplash.jpg') center center/cover no-repeat;
   border-radius: .8rem;
   padding: 1rem 1rem;
-  /* margin: 20px 0; */
   flex-flow:column wrap;
   justify-content: space-between;
 }  
@@ -211,13 +209,18 @@ transform: translateX(-50%);
   width: 30vmin;
   text-align: center;
   border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(304deg, rgba(0,54,193,1) -13%, rgb(129, 77, 241) 100%);
+  color: white;
+  font-size: 1.2rem;
 }
 
 .product_body{
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-  padding: 5rem 0;
+  padding: 5rem 5rem;
 }
 
 .ad_banner{
@@ -233,7 +236,7 @@ transform: translateX(-50%);
 .shoe_body{
   display: flex;
   justify-content: center;
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .shoe_showcase{
@@ -245,16 +248,27 @@ transform: translateX(-50%);
 }
 
 .shoe_page_image{
-  height: 50vmin;
-  width: 50vmin;
+  height: 60vmin;
+  width: 60vmin;
   background-color: pink;
 }
 
+.white_text{
+  color: whitesmoke;
+}
+
 .description_banner{
-  height: 50vmin;
-  width: 25vh;
+  height: 60vmin;
+  width: 30vh;
+  padding: 1.5rem;
+  border-radius: .5rem;
   background-color: #222;
   margin-left: 2rem;
+  color: white;
+}
+
+.banner_text{
+  font-size: 1.5rem;
 }
 
 .edit_btn{

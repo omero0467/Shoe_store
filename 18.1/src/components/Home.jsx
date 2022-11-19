@@ -1,6 +1,4 @@
 import React from 'react'
-import Heading from './Heading'
-import List from './ProductList'
 import { Link } from "react-router-dom";
 
 function Home() {

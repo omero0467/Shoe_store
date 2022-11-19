@@ -3,6 +3,7 @@ import axios from "axios"
 export default function AppReducer (state, action) {
     switch (action.type) {
         case 'remove_listing':
+            handleDelete(action.payload)
             return {
                 listings: state.listings.filter((item)=>item.id!==action.payload)
             }
@@ -21,7 +22,8 @@ export default function AppReducer (state, action) {
                     }
                     return item
                 })
-
+                
+                handleEditListing(action.payload)
                 return {
                     listings: updatedList
                 }
@@ -35,7 +37,18 @@ export default function AppReducer (state, action) {
 
 async function handleAddListing(state){
 try {
-    const {data}= await axios.post('https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/apartments', {...state})
+    const {data}= await axios.post('https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/shoes', {...state})
+    return data.json()
+    
+} catch (error) {
+    console.log(error);
+}    
+
+}
+async function handleEditListing(state){
+try {
+    const {data}= await axios.put(`https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/shoes/${state.id}`, {...state})
+    return data.json()
     
 } catch (error) {
     console.log(error);
@@ -43,3 +56,11 @@ try {
 
 }
 
+const handleDelete = async (state) => {
+    try {
+      const { data } = await axios.delete(`https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/shoes/${state}`)
+      return data.json()
+    } catch (e) {
+        console.log(e);
+    }
+  };

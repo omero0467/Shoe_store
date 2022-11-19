@@ -4,27 +4,48 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/Global";
 import { useContext, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 function AddItem() {
-  const { listings, addListing } = useContext(GlobalContext);
+  const { addListing } = useContext(GlobalContext);
   const history = useNavigate();
   const [newListing, setnewListing] = useState({
-    date:'',
-    rating:'',
-    title:'',
+    price:'',
+    isAvaliable:'',
+    model:'',
+    series:'',
+    image:'',
+    size:'',
+    color:'',
+    des:'',
   });
+
+  // model,id,price,des,size,isAvaliable,color,series,image
   
   function handleChange(e) {
     switch (e.target.name) {
-        case 'title':
-            setnewListing((prev)=>({...prev,title:e.target.value}));
+        case 'price':
+            setnewListing((prev)=>({...prev,price:e.target.value}));
             break;
-        case 'rating':
-            setnewListing((prev)=>({...prev,rating:e.target.value}));
+        case 'model':
+            setnewListing((prev)=>({...prev,model:e.target.value}));
             break;
-        case 'date':
-            setnewListing((prev)=>({...prev,date:e.target.value}));
+        case 'series':
+            setnewListing((prev)=>({...prev,series:e.target.value}));
+            break;
+        case 'image':
+            setnewListing((prev)=>({...prev,image:e.target.value}));
+            break;
+        case 'size':
+            setnewListing((prev)=>({...prev,size:e.target.value}));
+            break;
+        case 'isAvaliable':
+            setnewListing((prev)=>({...prev,isAvaliable:e.target.value}));
+            break;
+        case 'color':
+            setnewListing((prev)=>({...prev,color:e.target.value}));
+            break;
+        case 'des':
+            setnewListing((prev)=>({...prev,des:e.target.value}));
             break;
         default:
             return newListing
@@ -33,6 +54,7 @@ function AddItem() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    console.log(newListing);
     // const listingObj = {
     //   date: "2023-01-22T09:27:39.360Z",
     //   rating: 12,
@@ -47,29 +69,69 @@ function AddItem() {
     <div>
       <Form onSubmit={(e)=>handleSubmit(e)}>
         <FormGroup>
-          <Label>Name</Label>
+          <Label>Price</Label>
           <Input
-          name="title"
+          name="price"
             onChange={(e) => handleChange(e)}
             type="text"
-            value={newListing.title}
-            placeholder="Add Listing Name"
+            value={newListing.price}
+            placeholder="Add Listing price"
           ></Input>
-          <Label>Date</Label>
+          <Label>Model</Label>
           <Input
-          name="date"
+          name="model"
             onChange={(e) => handleChange(e)}
             type="text"
-            value={newListing.date}
-            placeholder="Add date"
+            value={newListing.model}
+            placeholder="Add Listing Model"
           ></Input>
-          <Label>Rating</Label>
+          <Label>Series</Label>
           <Input
-          name="rating"
+          name="series"
+            onChange={(e) => handleChange(e)}
+            type="text"
+            value={newListing.series}
+            placeholder="Add Listing Series"
+          ></Input>
+          <Label>Size</Label>
+          <Input
+          name="size"
+            onChange={(e) => handleChange(e)}
+            type="text"
+            value={newListing.size}
+            placeholder="Add Listing Size"
+          ></Input>
+          <Label>Color</Label>
+          <Input
+          name="color"
+            onChange={(e) => handleChange(e)}
+            type="text"
+            value={newListing.color}
+            placeholder="Add Listing Color"
+          ></Input>
+          <Label>Image</Label>
+          <Input
+          name="image"
+            onChange={(e) => handleChange(e)}
+            type="text"
+            value={newListing.image}
+            placeholder="Add Image"
+          ></Input>
+          <Label>Stock</Label>
+          <Input
+          name="isAvaliable"
             onChange={(e) => handleChange(e)}
             type="number"
-            value={newListing.rating}
-            placeholder="Add Rating"
+            value={newListing.isAvaliable}
+            placeholder="Add Stock Condition"
+          ></Input>
+          <Label>Description</Label>
+          <Input
+          name="des"
+            onChange={(e) => handleChange(e)}
+            type="text"
+            value={newListing.des}
+            placeholder="Add Product Description"
           ></Input>
         </FormGroup>
         <Button type="submit">Submit</Button>

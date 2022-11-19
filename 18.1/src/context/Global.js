@@ -17,7 +17,7 @@ const [state, dispatch] = useReducer(AppReducer, initialState,)
         async function fetchData(){
             try{
                 setIsLoading(true);
-                const {data} = await axios.get('https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/apartments')
+                const {data} = await axios.get('https://6373a9b9348e94729912f2b1.mockapi.io/crudMock/shoes')
                 initialState.listings=[...data]
                 setIsLoading(false)
             }catch(e){console.log(e);}
@@ -25,7 +25,7 @@ const [state, dispatch] = useReducer(AppReducer, initialState,)
         fetchData()
     },[])
 
-    
+
 
     //Ations
     function removeListing (id){
@@ -55,6 +55,7 @@ const [state, dispatch] = useReducer(AppReducer, initialState,)
             removeListing,
             addListing,
             editListing,
+            isLoading,
         }}>
             {children}
         </GlobalContext.Provider>
